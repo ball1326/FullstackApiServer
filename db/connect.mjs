@@ -4,6 +4,12 @@ import Sequelize from "sequelize";
 const sequelize = new Sequelize(DB, USER, PASSWORD, {
   host: HOST,
   dialect: "mysql",
+  dialectOptions:{
+    sel:{
+      require: true,
+      rejectUnauthorized: false,
+    },
+  },
 });
 
 sequelize.connectDB = async () => {
